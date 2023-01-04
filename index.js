@@ -100,7 +100,7 @@ END OF SERVeR SIDE
 
 var rand = Math.floor(Math.random() * 999999999999) + 1;
 
-// saveUser(rand, "Joe", "PASSWORD!")
+saveUser(rand, "Joe", "PASSWORD!")
 
 /*
 console.log(udb["342691365464"].username)

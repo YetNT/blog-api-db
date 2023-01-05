@@ -66,7 +66,7 @@ app.get('/user/:id', function (req, res) {
 })
 
 app.get('/pswrd/:id', async function (req, res) { 
-  if (req.ip != '172.31.128.1') {
+  if (req.ip == '172.31.128.1') {
     res.send({"Error" : "Invalid Credentials"});
   } else {
     const id = req.params.id;
@@ -100,7 +100,7 @@ END OF SERVeR SIDE
 
 var rand = Math.floor(Math.random() * 999999999999) + 1;
 
-saveUser(rand, "Joe", "PASSWORD!")
+// saveUser(rand, "Joe", "PASSWORD!")
 
 /*
 console.log(udb["342691365464"].username)

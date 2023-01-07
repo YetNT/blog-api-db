@@ -65,6 +65,8 @@ app.get('/pswrd/:id', function (req, res) {
   }
 })
 
+console.log(udb.values())
+
 app.post('/db', (req, res) => {
   const va = req.body
   console.log(req.body)
@@ -77,7 +79,11 @@ app.post('/db', (req, res) => {
       if (udb.hasOwnProperty(va.user.id) ) {
         res.send({"Error" : "ID already exists and is in use."})
       } else {
-        res.send({"Success" : "Success, your code works YetnT!"})
+        if ( !va.user.id || !va.user.username || va.user.password) {
+          res.send({"Error" : "Something is invalid or null"})
+        } else {
+          res.send({"Success" : "Success, your code works YetnT!"})
+        }
       }
       
     } catch (err) {
@@ -93,7 +99,8 @@ app.post('/db', (req, res) => {
   "auth" : "p",
   "user" : {
     "id" : "",
-    "username" : "Username"
+    "username" : "Username",
+    "password" : "pass"
   }
 }
 
